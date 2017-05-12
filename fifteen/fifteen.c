@@ -137,7 +137,7 @@ int main(int argc, string argv[])
 void clear(void)
 {
     printf("\033[2J");
-    printf("\033[%d;%dH", 0, 0);
+    printf("\033[%d;%dH", 15, 69);
 }
 
 /**
@@ -192,6 +192,8 @@ void draw(void)
           
         }
         printf("\n");
+        
+    printf("                                                                    ");
     }
 }
 
