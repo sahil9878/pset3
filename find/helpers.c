@@ -13,6 +13,8 @@
  */
 bool search(int value, int values[], int n)
 {
+    if(n<0)
+    return false;
     bool flag=0;
     for(int i = 0;i<n+1;i++)
     {
