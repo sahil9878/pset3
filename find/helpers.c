@@ -13,20 +13,22 @@
  */
 bool search(int value, int values[], int n)
 {
-    if(n<0)
-    return false;
-    bool flag=0;
-    for(int i = 0;i<n+1;i++)
+    if (n < 0)
     {
-      if(values[i]==value)
-      {
-          flag=1;
-      }
+        return false;}
+    bool flag = 0;
+    for (int i = 0;i < n + 1;i++)
+    {
+        if (values[i] == value)
+        {
+            flag = 1;
+        }
     }
-    if(flag==1)
-    return true;
+    if (flag == 1)
+    {
+        return true;}
     else
-    return false;
+        return false;
 }
 
 /**
@@ -34,16 +36,16 @@ bool search(int value, int values[], int n)
  */
 void sort(int values[], int n)
 {
-    int i,j;
-    for(i=0;i<n;i++)
+    int i, j;
+    for (i = 0;i < n;i++)
     {
-        for(j=0;j<n;j++)
+        for (j = 0;j < n;j++)
         {
-            if(values[j]>values[j+1])
+            if (values[j] > values[j + 1])
             {
-                int temp=values[j];
-                values[j]=values[j+1];
-                values[j+1]=temp;
+                int temp = values[j];
+                values[j] = values[j + 1];
+                values[j + 1] = temp;
             }
         }
         
