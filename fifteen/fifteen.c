@@ -165,8 +165,11 @@ void init(void)
             k--;
         }
     }
-   
-    
+    if (d%2==0){
+    k=board[d-1][d-2];
+    board[d-1][d-2]=board[d-1][d-3];
+    board[d-1][d-3]=k;
+    }
 }
 
 /**
