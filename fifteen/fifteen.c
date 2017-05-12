@@ -156,19 +156,20 @@ void greet(void)
  */
 void init(void)
 {
-    int k=d*d-1;
-    for(int i=0;i<d;i++)
+    int k = d * d - 1;
+    for(int i = 0;i < d;i++)
     {
-        for(int j=0;j<d;j++)
+        for(int j = 0;j < d;j++)
         {
-            board[i][j]=k;
+            board[i][j] = k;
             k--;
         }
     }
-    if (d%2==0){
-    k=board[d-1][d-2];
-    board[d-1][d-2]=board[d-1][d-3];
-    board[d-1][d-3]=k;
+    if (d % 2 == 0)
+    {
+        k = board[d - 1][d - 2];    
+        board[d - 1][d - 2] = board[d - 1][d - 3];
+        board[d - 1][d - 3] = k;
     }
 }
 
@@ -178,14 +179,16 @@ void init(void)
 void draw(void)
 {
     
-    for(int i=0;i<d;i++)
+    for (int i = 0;i < d;i++)
     {
-        for(int j=0;j<d;j++)
+        for (int j = 0;j < d;j++)
         {
-            if(board[i][j]==0)
-            printf("  _");
+            if (board[i][j] == 0)
+            {
+                printf("  _");
+            }
             else
-            printf(" %2i",board[i][j]);
+                printf(" %2i",board[i][j]);
           
         }
         printf("\n");
@@ -198,32 +201,35 @@ void draw(void)
  */
 bool move(int tile)
 {
-   int row,column,rw,clmn;
-    for(int i=0;i<d;i++)
+    int row, column, rw2, clmn;
+    for (int i = 0;i < d;i++)
     {
-        for(int j=0;j<d;j++)
+        for (int j = 0;j < d;j++)
         {
-            if(board[i][j]==tile)
+            if (board[i][j] == tile)
             {
-            row=i;
-            column=j;
+                row = i;
+                column = j;
             }
-            if(board[i][j]==0)
+            if (board[i][j] == 0)
             {
-                rw=i;
-                clmn=j;
+                rw2 = i;
+                clmn = j;
             }
         }
     }
-    if((rw==row+1&&clmn==column)||(rw==row&&clmn==column-1)||(rw==row&&clmn==column+1)||(rw==row-1&&clmn==column))
+    if ((rw2 == row + 1 && clmn == column) || 
+    (rw2 == row && clmn == column - 1) || 
+    (rw2 == row && clmn == column + 1) || 
+    (rw2 == row - 1 && clmn == column))
     {
-        int temp=board[row][column];
-        board[row][column]=board[rw][clmn];
-        board[rw][clmn]=temp;
+        int temp = board[row][column];
+        board[row][column] = board[rw2][clmn];
+        board[rw2][clmn] = temp;
         return true;
     }
     else
-    return false;
+        return false;
 }
 
 /**
@@ -232,21 +238,24 @@ bool move(int tile)
  */
 bool won(void)
 {
-    int win=1;
-    bool winn=1;
-    for(int i=0;i<d;i++)
+    int win = 1;
+    bool winn = 1;
+    for(int i = 0;i < d;i++)
     {
-        for(int j=0;j<d;j++)
+        for(int j = 0;j < d;j++)
         {
-            if(board[i][j]!=win&&board[i][j]!=0)
+            if (board[i][j] != win && board[i][j] != 0)
             {
-            winn=0;
+                winn = 0;
             }
             win++;
         }
     }
-    if(winn==1)
-    return true;
+    if (winn == 1)
+    {
+        return true;
+    }
+       
     else
-    return false;
+        return false;
 }
