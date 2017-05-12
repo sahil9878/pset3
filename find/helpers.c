@@ -34,6 +34,20 @@ bool search(int value, int values[], int n)
  */
 void sort(int values[], int n)
 {
-    // TODO: implement a sorting algorithm
+    int i,j;
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            if(values[j]>values[j+1])
+            {
+                int temp=values[j];
+                values[j]=values[j+1];
+                values[j+1]=temp;
+            }
+        }
+        
+    }
+    
     return;
 }
